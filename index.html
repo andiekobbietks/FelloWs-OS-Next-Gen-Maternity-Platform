@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FelloWS PRD Explorer (95 Edition)</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <!-- Favicon - Usa un'icona Win98 verificata -->
+    <link rel="icon" href="https://win98icons.alexmeub.com/icons/png/world-1.png" type="image/png">
+     <style>
+       /* Font stack stile Win95 */
+       body, button, input, textarea, select, .window-title, .icon span, .taskbar-app, .start-menu-item {
+           font-family: "Tahoma", "Geneva", sans-serif;
+           font-size: 11px;
+       }
+       .window-control-button { font-family: "Webdings"; } /* Usa Webdings per simboli */
+     </style>
+  </head>
+  <body>
+    <!-- Usiamo le classi e ID di Gemini 95 -->
+    <div class="desktop" id="desktop">
+
+      <!-- Icone Desktop: SOLO URL verificati da Gemini95 e Alex Meub list -->
+      <div class="icon" data-app="splashScreen">
+        <img src="https://win98icons.alexmeub.com/icons/png/computer_explorer_cool-5.png" alt="Start FelloWS OS" />
+        <span>Start FelloWS OS</span>
+      </div>
+      <div class="icon" data-app="prdIntro">
+        <img src="https://win98icons.alexmeub.com/icons/png/help_book_computer-1.png" alt="Info" />
+        <span>About FelloWS OS</span>
+      </div>
+      <div class="icon" data-app="vision">
+        <!-- Usiamo Notepad da Gemini95 -->
+        <img src="https://storage.googleapis.com/gemini-95-icons/GemNotes.png" alt="Vision" />
+        <span>1. Exec Summary</span>
+      </div>
+      <div class="icon" data-app="productVision">
+        <img src="https://win98icons.alexmeub.com/icons/png/world-1.png" alt="Product Vision" />
+        <span>2. Product Vision</span>
+      </div>
+      <div class="icon" data-app="users">
+        <img src="https://win98icons.alexmeub.com/icons/png/user_world-1.png" alt="Users" />
+        <span>3. User Research</span>
+      </div>
+      <div class="icon" data-app="journeys">
+         <img src="https://win98icons.alexmeub.com/icons/png/windows_explorer_file_list-4.png" alt="Journeys" />
+         <span>4. User Journeys</span>
+      </div>
+      <div class="icon" data-app="features">
+        <img src="https://win98icons.alexmeub.com/icons/png/application_hammer-1.png" alt="Features" />
+        <span>5. Functional Req.</span>
+      </div>
+       <div class="icon" data-app="technology">
+        <img src="https://win98icons.alexmeub.com/icons/png/chip_card_reader-1.png" alt="Technology" />
+        <span>6. Tech Architecture</span>
+      </div>
+       <div class="icon" data-app="design">
+        <!-- Usiamo Paint da Gemini95 -->
+        <img src="https://storage.googleapis.com/gemini-95-icons/gempaint.png" alt="Design" />
+        <span>7. UI Requirements</span>
+      </div>
+       <div class="icon" data-app="content">
+         <!-- Usiamo Notepad da Gemini95 -->
+        <img src="https://storage.googleapis.com/gemini-95-icons/GemNotes.png" alt="Content" />
+        <span>8. Content Req.</span>
+      </div>
+       <div class="icon" data-app="privacy">
+        <img src="https://win98icons.alexmeub.com/icons/png/keys-4.png" alt="Privacy" />
+        <span>9. Data & Privacy</span>
+      </div>
+      <div class="icon" data-app="impact">
+        <img src="https://win98icons.alexmeub.com/icons/png/graph_stock_field_up-0.png" alt="Impact" />
+        <span>10. Analytics</span>
+      </div>
+       <div class="icon" data-app="roadmap">
+        <img src="https://win98icons.alexmeub.com/icons/png/timetable-1.png" alt="Roadmap" />
+        <span>11. Implementation</span>
+      </div>
+       <div class="icon" data-app="risks">
+        <img src="https://win98icons.alexmeub.com/icons/png/warning-0.png" alt="Risks" />
+        <span>12. Risks</span>
+      </div>
+       <div class="icon" data-app="future">
+        <img src="https://win98icons.alexmeub.com/icons/png/web_file_set_globe-0.png" alt="Future" />
+        <span>13. Future Directions</span>
+      </div>
+      <div class="icon" data-app="appendices">
+        <img src="https://win98icons.alexmeub.com/icons/png/template_empty-2.png" alt="Appendices" />
+        <span>14. Appendices</span>
+      </div>
+
+      <!-- Finestre "Applicazione" (classi 'window resizable', ID, contenuto vuoto, icona titlebar) -->
+      <!-- Nota: L'attributo alt="" per le icone nelle titlebar è intenzionale per evitare ridondanza con il titolo -->
+
+      <div class="window resizable" id="splashScreen">
+        <div class="window-titlebar">
+           <img src="https://win98icons.alexmeub.com/icons/png/computer_explorer_cool-5.png" class="window-title-icon" alt="" />
+           <span class="window-title">Starting FelloWS OS...</span>
+           <div class="window-controls"> <div class="window-close window-control-button"></div> </div>
+        </div>
+        <div class="window-content"> <!-- Popolato da initSplashScreen() --> </div>
+      </div>
+
+      <div class="window resizable" id="prdIntro">
+        <div class="window-titlebar">
+           <img src="https://win98icons.alexmeub.com/icons/png/help_book_computer-1.png" class="window-title-icon" alt="" />
+           <span class="window-title">About This FelloWS OS</span>
+           <div class="window-controls"> <div class="window-minimize window-control-button"></div> <div class="window-close window-control-button"></div> </div>
+        </div>
+        <div class="window-content"> <!-- Popolato da initPrdIntro() --> </div>
+      </div>
+
+      <div class="window resizable" id="vision">
+        <div class="window-titlebar">
+           <img src="https://storage.googleapis.com/gemini-95-icons/GemNotes.png" class="window-title-icon" alt="" />
+           <span class="window-title">1. Executive Summary</span>
+           <div class="window-controls"> <div class="window-minimize window-control-button"></div> <div class="window-close window-control-button"></div> </div>
+        </div>
+        <div class="window-content"> <!-- Popolato da initVision() --> </div>
+      </div>
+
+       <div class="window resizable" id="productVision">
+         <div class="window-titlebar">
+            <img src="https://win98icons.alexmeub.com/icons/png/world-1.png" class="window-title-icon" alt="" />
+            <span class="window-title">2. Product Vision</span>
+            <div class="window-controls"> <div class="window-minimize window-control-button"></div> <div class="window-close window-control-button"></div> </div>
+         </div>
+         <div class="window-content"> <!-- Popolato da initProductVision() --> </div>
+       </div>
+
+      <div class="window resizable" id="users">
+        <div class="window-titlebar">
+           <img src="https://win98icons.alexmeub.com/icons/png/user_world-1.png" class="window-title-icon" alt="" />
+           <span class="window-title">3. User Research & Personas</span>
+           <div class="window-controls"> <div class="window-minimize window-control-button"></div> <div class="window-close window-control-button"></div> </div>
+        </div>
+        <div class="window-content"> <!-- Popolato da initUsers() --> </div>
+      </div>
+
+      <div class="window resizable" id="journeys">
+        <div class="window-titlebar">
+           <img src="https://win98icons.alexmeub.com/icons/png/windows_explorer_file_list-4.png" class="window-title-icon" alt="" />
+           <span class="window-title">4. User Journeys</span>
+           <div class="window-controls"> <div class="window-minimize window-control-button"></div> <div class="window-close window-control-button"></div> </div>
+        </div>
+        <div class="window-content"> <!-- Popolato da initJourneys() --> </div>
+      </div>
+
+      <div class="window resizable" id="features">
+        <div class="window-titlebar">
+           <img src="https://win98icons.alexmeub.com/icons/png/application_hammer-1.png" class="window-title-icon" alt="" />
+           <span class="window-title">5. Functional Requirements</span>
+           <div class="window-controls"> <div class="window-minimize window-control-button"></div> <div class="window-close window-control-button"></div> </div>
+        </div>
+        <div class="window-content"> <!-- Popolato da initFeatures() --> </div>
+      </div>
+
+      <div class="window resizable" id="technology">
+        <div class="window-titlebar">
+           <img src="https://win98icons.alexmeub.com/icons/png/chip_card_reader-1.png" class="window-title-icon" alt="" />
+           <span class="window-title">6. Technical Architecture</span>
+           <div class="window-controls"> <div class="window-minimize window-control-button"></div> <div class="window-close window-control-button"></div> </div>
+        </div>
+        <div class="window-content"> <!-- Popolato da initTechnology() --> </div>
+      </div>
+
+      <div class="window resizable" id="design">
+        <div class="window-titlebar">
+           <img src="https://storage.googleapis.com/gemini-95-icons/gempaint.png" class="window-title-icon" alt="" />
+           <span class="window-title">7. UI Requirements</span>
+           <div class="window-controls"> <div class="window-minimize window-control-button"></div> <div class="window-close window-control-button"></div> </div>
+        </div>
+        <div class="window-content"> <!-- Popolato da initDesign() --> </div>
+      </div>
+
+      <div class="window resizable" id="content">
+        <div class="window-titlebar">
+           <img src="https://storage.googleapis.com/gemini-95-icons/GemNotes.png" class="window-title-icon" alt="" />
+           <span class="window-title">8. Content Requirements</span>
+           <div class="window-controls"> <div class="window-minimize window-control-button"></div> <div class="window-close window-control-button"></div> </div>
+        </div>
+        <div class="window-content"> <!-- Popolato da initContent() --> </div>
+      </div>
+
+      <div class="window resizable" id="privacy">
+        <div class="window-titlebar">
+           <img src="https://win98icons.alexmeub.com/icons/png/keys-4.png" class="window-title-icon" alt="" />
+           <span class="window-title">9. Data Management & Privacy</span>
+           <div class="window-controls"> <div class="window-minimize window-control-button"></div> <div class="window-close window-control-button"></div> </div>
+        </div>
+        <div class="window-content"> <!-- Popolato da initPrivacy() --> </div>
+      </div>
+
+      <div class="window resizable" id="impact">
+        <div class="window-titlebar">
+           <img src="https://win98icons.alexmeub.com/icons/png/graph_stock_field_up-0.png" class="window-title-icon" alt="" />
+           <span class="window-title">10. Analytics & Measurement</span>
+           <div class="window-controls"> <div class="window-minimize window-control-button"></div> <div class="window-close window-control-button"></div> </div>
+        </div>
+        <div class="window-content"> <!-- Popolato da initImpact() --> </div>
+      </div>
+
+      <div class="window resizable" id="roadmap">
+        <div class="window-titlebar">
+           <img src="https://win98icons.alexmeub.com/icons/png/timetable-1.png" class="window-title-icon" alt="" />
+           <span class="window-title">11. Implementation & Rollout</span>
+           <div class="window-controls"> <div class="window-minimize window-control-button"></div> <div class="window-close window-control-button"></div> </div>
+        </div>
+        <div class="window-content"> <!-- Popolato da initRoadmap() --> </div>
+      </div>
+
+      <div class="window resizable" id="risks">
+        <div class="window-titlebar">
+            <img src="https://win98icons.alexmeub.com/icons/png/warning-0.png" class="window-title-icon" alt="" />
+           <span class="window-title">12. Risks & Mitigation</span>
+           <div class="window-controls"> <div class="window-minimize window-control-button"></div> <div class="window-close window-control-button"></div> </div>
+        </div>
+        <div class="window-content"> <!-- Popolato da initRisks() --> </div>
+      </div>
+
+      <div class="window resizable" id="future">
+        <div class="window-titlebar">
+           <img src="https://win98icons.alexmeub.com/icons/png/web_file_set_globe-0.png" class="window-title-icon" alt="" />
+           <span class="window-title">13. Future Directions</span>
+           <div class="window-controls"> <div class="window-minimize window-control-button"></div> <div class="window-close window-control-button"></div> </div>
+        </div>
+        <div class="window-content"> <!-- Popolato da initFuture() --> </div>
+      </div>
+
+       <div class="window resizable" id="appendices">
+         <div class="window-titlebar">
+            <img src="https://win98icons.alexmeub.com/icons/png/template_empty-2.png" class="window-title-icon" alt="" />
+            <span class="window-title">14. Appendices</span>
+            <div class="window-controls"> <div class="window-minimize window-control-button"></div> <div class="window-close window-control-button"></div> </div>
+         </div>
+         <div class="window-content"> <!-- Popolato da initAppendices() --> </div>
+       </div>
+
+
+      <!-- Start Menu: struttura e classi di Gemini 95, icone corrispondenti -->
+      <div class="start-menu" id="start-menu">
+         <div class="start-menu-item" data-app="splashScreen"><img src="https://win98icons.alexmeub.com/icons/png/computer_explorer_cool-5.png" class="start-menu-icon" alt=""/>Start FelloWS OS</div>
+         <div class="start-menu-item" data-app="prdIntro"><img src="https://win98icons.alexmeub.com/icons/png/help_book_computer-1.png" class="start-menu-icon" alt=""/>About FelloWS OS</div>
+         <div class="start-menu-separator"></div>
+         <div class="start-menu-item" data-app="vision"><img src="https://storage.googleapis.com/gemini-95-icons/GemNotes.png" class="start-menu-icon" alt=""/>1. Exec Summary</div>
+         <div class="start-menu-item" data-app="productVision"><img src="https://win98icons.alexmeub.com/icons/png/world-1.png" class="start-menu-icon" alt=""/>2. Product Vision</div>
+         <div class="start-menu-item" data-app="users"><img src="https://win98icons.alexmeub.com/icons/png/user_world-1.png" class="start-menu-icon" alt=""/>3. User Research</div>
+         <div class="start-menu-item" data-app="journeys"><img src="https://win98icons.alexmeub.com/icons/png/windows_explorer_file_list-4.png" class="start-menu-icon" alt=""/>4. User Journeys</div>
+         <div class="start-menu-item" data-app="features"><img src="https://win98icons.alexmeub.com/icons/png/application_hammer-1.png" class="start-menu-icon" alt=""/>5. Functional Req.</div>
+         <div class="start-menu-item" data-app="technology"><img src="https://win98icons.alexmeub.com/icons/png/chip_card_reader-1.png" class="start-menu-icon" alt=""/>6. Tech Arch.</div>
+         <div class="start-menu-item" data-app="design"><img src="https://storage.googleapis.com/gemini-95-icons/gempaint.png" class="start-menu-icon" alt=""/>7. UI Req.</div>
+         <div class="start-menu-item" data-app="content"><img src="https://storage.googleapis.com/gemini-95-icons/GemNotes.png" class="start-menu-icon" alt=""/>8. Content Req.</div>
+         <div class="start-menu-item" data-app="privacy"><img src="https://win98icons.alexmeub.com/icons/png/keys-4.png" class="start-menu-icon" alt=""/>9. Data & Privacy</div>
+         <div class="start-menu-item" data-app="impact"><img src="https://win98icons.alexmeub.com/icons/png/graph_stock_field_up-0.png" class="start-menu-icon" alt=""/>10. Analytics</div>
+         <div class="start-menu-item" data-app="roadmap"><img src="https://win98icons.alexmeub.com/icons/png/timetable-1.png" class="start-menu-icon" alt=""/>11. Implementation</div>
+         <div class="start-menu-item" data-app="risks"><img src="https://win98icons.alexmeub.com/icons/png/warning-0.png" class="start-menu-icon" alt=""/>12. Risks</div>
+         <div class="start-menu-item" data-app="future"><img src="https://win98icons.alexmeub.com/icons/png/web_file_set_globe-0.png" class="start-menu-icon" alt=""/>13. Future</div>
+         <div class="start-menu-item" data-app="appendices"><img src="https://win98icons.alexmeub.com/icons/png/template_empty-2.png" class="start-menu-icon" alt=""/>14. Appendices</div>
+         <div class="start-menu-separator"></div>
+         <div class="start-menu-item" data-action="shutdown"><img src="https://win98icons.alexmeub.com/icons/png/shut_down_cool-5.png" class="start-menu-icon" alt=""/>Shutdown FelloWS OS</div>
+      </div>
+
+       <!-- Taskbar: struttura e classi di Gemini 95 -->
+       <div id="taskbar">
+         <button id="start-button">
+           <!-- Icona Start Win95 standard -->
+           <img src="https://win98icons.alexmeub.com/icons/png/windows-4.png" alt="Start"/>
+           <span>Start</span>
+         </button>
+         <div id="taskbar-apps"></div>
+         <div id="taskbar-clock-area">
+            <span id="taskbar-clock"></span>
+         </div>
+       </div>
+
+       <!-- Overlay per lo spegnimento simulato -->
+       <div id="shutdown-overlay">
+            <div class="shutdown-box">
+                <img src="https://win98icons.alexmeub.com/icons/png/computer_explorer_cool-5.png" alt="Shutdown Computer" />
+                <p>It is now safe to turn off<br>your FelloWS OS simulation.</p>
+                <button id="shutdown-restart-button">Restart Simulation</button>
+            </div>
+       </div>
+
+    </div> <!-- Fine Desktop -->
+
+    <!-- Script TS compilato e inizializzazione Mermaid -->
+    <script type="module" src="main.js"></script>
+    <script>
+       document.addEventListener('DOMContentLoaded', () => {
+          try {
+              // Tema 'base' per un look più pulito/retro per i diagrammi
+              mermaid.initialize({ startOnLoad: true, theme: 'base' });
+              console.log("Mermaid initialized on DOMContentLoaded.");
+          } catch (e) { console.error("Error initializing Mermaid:", e); }
+       });
+    </script>
+  </body>
+</html>

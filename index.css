@@ -1,0 +1,258 @@
+/* Base styles - DA GEMINI 95 */
+body {
+  /* Font stack più vicino a Win95 */
+  font-family: "Tahoma", "Geneva", sans-serif;
+  background-color: #008080; /* Teal background */
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevent scrollbars */
+  color: black;
+  font-size: 11px; /* Dimensione font Win95 */
+  cursor: default;
+}
+
+/* Desktop styles - DA GEMINI 95 */
+.desktop {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  padding-top: 5px;
+  padding-left: 5px;
+}
+
+/* Icon styles - DA GEMINI 95 */
+.icon {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  cursor: pointer;
+  user-select: none;
+  width: 75px;
+  /* height: 75px; Rimuoviamo altezza fissa per testo a capo */
+  vertical-align: top;
+  text-align: center;
+  padding: 5px;
+  position: relative;
+}
+
+.icon img {
+  width: 32px; /* Dimensione icona standard Win95 */
+  height: 32px;
+  margin-bottom: 5px;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  display: block;
+}
+
+.icon span {
+  color: white;
+  font-size: 10px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+  white-space: normal;
+  word-wrap: break-word;
+  max-width: 100%;
+  text-align: center;
+  background-color: transparent;
+  padding: 1px 2px;
+}
+
+/* Selezione icona stile Windows 95 */
+.icon:focus,
+.icon.selected {
+    outline: 1px dotted black;
+    outline-offset: -2px;
+}
+.icon:focus span,
+.icon.selected span {
+    background-color: #000080;
+    color: white;
+    outline: none;
+    text-shadow: none;
+}
+
+
+/* Window styles - DA GEMINI 95 */
+.window {
+  background-color: #C0C0C0;
+  border-top: 2px solid #FFFFFF;
+  border-left: 2px solid #FFFFFF;
+  border-right: 2px solid #000000;
+  border-bottom: 2px solid #000000;
+  box-shadow: 1px 1px 0px #000000, 2px 2px 0px #000000; /* Ombra netta Win95 */
+  position: absolute;
+  top: 50px;
+  left: 100px;
+  width: 550px;
+  height: 420px;
+  display: none;
+  flex-direction: column;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.window.active {
+  display: flex;
+}
+.window.active .window-titlebar {
+   /* Nessun cambio stile per attiva, come Gemini95 base */
+}
+
+.window.resizable {
+  resize: both;
+  overflow: hidden;
+  min-width: 250px;
+  min-height: 200px;
+}
+
+.window-titlebar {
+  background-color: #000080;
+  color: white;
+  padding: 2px 3px 3px 3px; /* Padding Win95 */
+  font-size: 11px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: grab;
+  height: 18px; /* Altezza precisa Win95 */
+  box-sizing: border-box;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.window-titlebar:active { cursor: grabbing; }
+
+/* Icona nella title bar */
+.window-titlebar .window-title-icon {
+  width: 16px;
+  height: 16px;
+  margin-left: 1px;
+  margin-right: 3px;
+  vertical-align: top;
+  image-rendering: pixelated;
+}
+
+.window-title {
+  margin-right: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 13px;
+   max-width: calc(100% - 45px); /* Spazio per icona e bottoni */
+}
+
+.window-controls { display: flex; gap: 2px; }
+
+.window-control-button {
+  width: 16px;
+  height: 14px;
+  background-color: #C0C0C0;
+  border-top: 1px solid #FFFFFF; border-left: 1px solid #FFFFFF;
+  border-right: 1px solid #000000; border-bottom: 1px solid #000000;
+  box-shadow: none; /* No shadow extra */
+  display: flex; justify-content: center; align-items: center;
+  cursor: pointer;
+  font-family: "Marlett", "Webdings"; /* Font per simboli */
+  font-size: 10px; font-weight: 900; line-height: 14px; padding: 0;
+  color: black;
+}
+/* Simboli via CSS (più affidabile) */
+.window-minimize::before { content: "0"; }
+.window-close::before { content: "r"; }
+
+.window-control-button:active {
+  border-top: 1px solid #000000; border-left: 1px solid #000000;
+  border-right: 1px solid #FFFFFF; border-bottom: 1px solid #FFFFFF;
+  padding-top: 1px; padding-left: 1px; /* Effetto premuto */
+}
+
+.window-content {
+  padding: 10px;
+  font-size: 11px;
+  font-family: "Tahoma", "Geneva", sans-serif;
+  flex-grow: 1;
+  overflow: auto;
+  background-color: white;
+  border: 1px inset #808080; /* Bordo incassato */
+  margin: 2px; /* Margine stile Win95 */
+  position: relative;
+  line-height: 1.4;
+}
+
+/* AGGIUNTA: Stili per Contenuto Dinamico FelloWS (stile retro) */
+.window-content section { margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid #E0E0E0; }
+.window-content section:last-child { border-bottom: none; margin-bottom: 0; }
+.window-content h2 { color: #000080; font-size: 1.1em; margin-bottom: 8px; padding-bottom: 4px; display: flex; align-items: center; border-bottom: 1px solid #A0A0A0; font-weight: bold; }
+.window-content h3 { color: #008080; font-size: 1em; margin-top: 10px; margin-bottom: 5px; display: flex; align-items: center; font-weight: bold; }
+.window-content h4 { font-size: 0.95em; font-weight: bold; margin-top: 8px; margin-bottom: 4px; color: #333; display: flex; align-items: center; }
+.window-content p { margin-bottom: 0.8em; }
+.window-content ul, .window-content ol { margin-left: 15px; margin-bottom: 0.8em; padding-left: 15px; }
+.window-content li { margin-bottom: 0.4em; list-style-position: outside; }
+.window-content hr { border: none; border-top: 1px solid #C0C0C0; margin: 10px 0; }
+.window-content strong { font-weight: bold; }
+.window-content .text-secondary { color: #008080; }
+.window-content code { background-color: #E0E0E0; padding: 1px 3px; border-radius: 0; font-size: 1em; font-family: "Courier New", monospace; border: 1px inset #808080; }
+
+/* AGGIUNTA: Spiegazione in Italiano (stile tooltip Win95) */
+.explanation.italian { background-color: #FFFFE1; border: 1px solid black; padding: 5px 7px; margin: 6px 0 8px 0; font-size: 10px; line-height: 1.3; border-radius: 0; color: black; }
+.explanation.italian strong { font-weight: bold; }
+.explanation.italian::before { content: "Spiegazione:"; font-weight: bold; display: block; margin-bottom: 2px; }
+
+/* AGGIUNTA: Icone nel Contenuto */
+.content-icon { width: 16px; height: 16px; margin-right: 5px; vertical-align: middle; display: inline-block; image-rendering: pixelated;}
+.content-icon.inline { vertical-align: -3px; }
+
+/* AGGIUNTA: Mermaid Diagram (contenitore base retro) */
+.mermaid { background-color: #FFFFFF; border: 1px inset #808080; padding: 10px; margin: 15px auto; text-align: center; overflow: auto; max-width: 100%; }
+.mermaid svg { max-width: 100%; height: auto; font-family: "Tahoma", sans-serif !important; font-size: 11px !important; }
+/* Stili specifici per mermaid tema 'base' */
+.mermaid .node rect, .mermaid .node circle, .mermaid .node polygon, .mermaid .node ellipse { fill: #E0E0E0 !important; stroke: #000 !important; stroke-width: 1px !important; }
+.mermaid .node text { fill: black !important; font-size: 10px !important; }
+.mermaid .edgeLabel text { fill: black !important; background: white !important; font-size: 9px !important; }
+.mermaid .edgePath path { stroke: #333 !important; }
+.mermaid marker { fill: #333 !important; }
+.mermaid .cluster rect { fill: rgba(192,192,192,0.2) !important; stroke: #999 !important; stroke-width: 1px !important; stroke-dasharray: 3 3 !important; }
+.mermaid .cluster text { fill: #555 !important; font-weight: bold !important; }
+
+
+/* Start Menu - Stile Gemini 95 */
+.start-menu { background-color: #C0C0C0; border-top: 2px solid #FFFFFF; border-left: 2px solid #FFFFFF; border-right: 2px solid #000000; border-bottom: 2px solid #000000; box-shadow: 1px 1px 0 1px #808080, 2px 2px 0 1px #000000; /* Ombra più marcata Win95 */ position: absolute; bottom: var(--taskbar-height); left: 0; width: 180px; display: none; flex-direction: column; z-index: 50; padding: 2px; }
+.start-menu.active { display: flex; }
+.start-menu-item { padding: 4px 8px 4px 28px; font-size: 11px; color: black; cursor: pointer; white-space: nowrap; position: relative; height: 22px; display: flex; align-items: center; }
+.start-menu-item:hover { background-color: #000080; color: white; }
+.start-menu-item img.start-menu-icon { position: absolute; left: 4px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; object-fit: contain; image-rendering: pixelated; }
+.start-menu-separator { height: 1px; background-color: #808080; border-bottom: 1px solid #FFFFFF; margin: 3px 2px; }
+
+/* Taskbar - Stile Gemini 95 */
+#taskbar { background-color: #C0C0C0; border-top: 2px solid #FFFFFF; position: fixed; bottom: 0; left: 0; width: 100%; height: var(--taskbar-height); display: flex; align-items: center; padding: 2px; z-index: 40; box-sizing: border-box; }
+
+#start-button { background-color: #C0C0C0; border-top: 2px solid #FFFFFF; border-left: 2px solid #FFFFFF; border-right: 2px solid #000000; border-bottom: 2px solid #000000; padding: 2px 6px; margin-right: 4px; cursor: pointer; font-size: 11px; font-weight: bold; display: flex; align-items: center; gap: 4px; height: calc(var(--taskbar-height) - 8px); box-sizing: border-box; }
+#start-button:active { border-top: 2px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #FFFFFF; border-bottom: 2px solid #FFFFFF; padding: 3px 5px 1px 7px; }
+#start-button img { width: 16px; height: 16px; image-rendering: pixelated; }
+
+#taskbar-apps { display: flex; flex-grow: 1; height: 100%; align-items: center; overflow: hidden; margin-left: 2px; gap: 2px; }
+.taskbar-app { background-color: #C0C0C0; border-top: 1px solid #FFFFFF; border-left: 1px solid #FFFFFF; border-right: 1px solid #808080; border-bottom: 1px solid #808080; padding: 2px 6px; margin: 0; cursor: pointer; font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 150px; height: calc(var(--taskbar-height) - 10px); display: flex; align-items: center; gap: 4px; box-sizing: border-box; flex-shrink: 0; box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.3); }
+.taskbar-app img { width: 16px; height: 16px; image-rendering: pixelated; margin-right: 4px; }
+.taskbar-app.active, .taskbar-app:active { border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #FFFFFF; border-bottom: 1px solid #FFFFFF; background-color: #DDD; box-shadow: none; padding: 3px 5px 1px 7px; }
+
+/* AGGIUNTA: Area Orologio Taskbar - Stile Win95 */
+#taskbar-clock-area { border: 1px solid #808080; border-right-color: #FFFFFF; border-bottom-color: #FFFFFF; padding: 2px 5px; margin-left: auto; margin-right: 2px; height: calc(var(--taskbar-height) - 8px); display: flex; align-items: center; box-shadow: inset 1px 1px 1px #808080; }
+#taskbar-clock { font-size: 11px; color: black; }
+
+/* Nascondi resize handle browser */
+.os-window.resizable::-webkit-resizer { background: none; border: none; }
+
+/* Bottone interno stile Win95 */
+.window-content .internal-button { background-color: #C0C0C0; border-top: 1px solid #FFFFFF; border-left: 1px solid #FFFFFF; border-right: 1px solid #000000; border-bottom: 1px solid #000000; box-shadow: none; padding: 4px 8px; font-size: 11px; cursor: pointer; margin-top: 8px; display: inline-block; color: black; }
+.window-content .internal-button:active { border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #FFFFFF; border-bottom: 1px solid #FFFFFF; padding: 5px 7px 3px 9px; }
+
+/* AGGIUNTA: Overlay Spegnimento stile Win95 */
+#shutdown-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: #000080; display: none; justify-content: center; align-items: center; z-index: 100; color: white; text-align: center; font-family: "MS Sans Serif", "Tahoma", sans-serif; opacity: 0; transition: opacity 0.3s ease-in; }
+#shutdown-overlay.visible { display: flex; opacity: 1; }
+.shutdown-box { display: flex; flex-direction: column; align-items: center; gap: 25px; background: none; padding: 0; box-shadow: none; border-radius: 0; }
+.shutdown-box img { width: 48px; height: 48px; image-rendering: pixelated; }
+.shutdown-box p { font-size: 1.1rem; line-height: 1.4; color: #C0C0C0; text-shadow: 1px 1px #000000; }
+#shutdown-restart-button { background-color: #C0C0C0; border-top: 2px solid #FFFFFF; border-left: 2px solid #FFFFFF; border-right: 2px solid #000000; border-bottom: 2px solid #000000; padding: 5px 15px; font-size: 11px; font-weight: normal; cursor: pointer; color: black; }
+#shutdown-restart-button:active { border-top: 2px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #FFFFFF; border-bottom: 2px solid #FFFFFF; padding: 6px 14px 4px 16px; }
